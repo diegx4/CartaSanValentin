@@ -1,0 +1,255 @@
+/* Importación de la tipografía Sacramento */
+
+/* Estilos generales */
+#card {
+  height: 500px;
+  width: 800px;
+  margin: 5em auto;
+  position: fixed;
+  top: -15px;
+  left: 25%;
+  display: flex;
+  visibility: hidden; /* La carta está inicialmente oculta */
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+  #card {
+    width: 90%;
+    height: auto;
+    margin: 2em auto;
+    position: static;
+    visibility: none;
+    top: 50px;
+  }
+
+  .side.side.one {
+    display: none;
+  }
+
+  #card p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-size: 1.3em !important; /* Ajusté el tamaño del texto en móviles */
+  }
+
+  .valentines-day {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Estilo de la carta */
+#card h2 {
+  font-size: 2.5em; /* Ajusté el tamaño del encabezado */
+  margin: 0;
+  color: pink;
+  text-align: center;
+}
+
+#card p {
+  font-size: 1.25em; /* Ajusté el tamaño de texto en los párrafos */
+  text-align: justify;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Lado de la carta */
+.side {
+  background: #eee;
+  height: 550px;
+  width: 400px;
+  padding: 10px;
+}
+
+.side.one {
+  width: 320px;
+  transform: skew(10deg, 20deg);
+  background: linear-gradient(90deg, #fff, #fff 40%, #ddd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.side.two {
+  transform: skew(10deg, -15deg);
+  background: linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+
+/* Estilos del cuerpo de la página */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Sacramento", cursive;
+  background-color: #f1e3d3;
+  overflow: hidden;
+}
+
+/* Sobre (inicio) */
+.valentines-day {
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.3));
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  width: 254px;
+  height: 254px;
+  background-color: #ff9494;
+  transform: rotate(-45deg);
+  border-radius: 0 15px 0 0;
+  left: -37px;
+  top: -82px;
+}
+
+.envelope:after {
+  content: "";
+  position: absolute;
+  background-color: #ff9494;
+  width: 360px;
+  height: 225px;
+  left: -90px;
+  top: 45px;
+}
+
+.heart {
+  position: relative;
+  background-color: #e01911;
+  display: inline-block;
+  height: 180px;
+  top: 50px;
+  left: 0;
+  transform: rotate(-45deg);
+  width: 180px;
+  filter: drop-shadow(0 -10px 25px rgba(0, 0, 0, 0.3));
+  transition: 0.5s;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: #e01911;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  position: absolute;
+}
+
+.heart:before {
+  top: -100px;
+  left: 0;
+}
+
+.heart:after {
+  left: 100px;
+  top: 0;
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 190px solid #fbd2d2;
+  border-top: 113px solid transparent;
+  border-bottom: 113px solid transparent;
+  top: 44px;
+  left: 80px;
+  z-index: 4;
+}
+
+.front:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 190px solid #fbd2d2;
+  border-top: 113px solid transparent;
+  border-bottom: 113px solid transparent;
+  top: -113px;
+  left: -170px;
+}
+
+.front:after {
+  width: 0;
+  height: 0;
+  position: absolute;
+  content: "";
+  border-bottom: 150px solid #fce7e9;
+  border-right: 180px solid transparent;
+  border-left: 180px solid transparent;
+  top: -36px;
+  left: -170px;
+}
+
+.text {
+  position: absolute;
+  font-family: arial;
+  letter-spacing: 3.5px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 2;
+  top: 80px;
+  left: 15px;
+  transition: 0.5s;
+}
+
+/* Efecto de hover sobre el sobre */
+.valentines-day:hover .heart {
+  transform: translateY(-50px) rotate(-45deg);
+}
+
+.valentines-day:hover .text {
+  transform: translateY(-50px);
+}
+
+/* Estilo para el icono del corazón */
+.heart-icon {
+  font-size: 8em; /* Tamaño grande */
+  color: #ff69b4; /* Rosa */
+  animation: pulseHeart 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Medios para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  #card {
+    width: 90%;
+    max-width: 90%;
+    margin: 2em auto;
+  }
+
+  .side {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .text {
+    font-size: 1em; /* Ajuste del tamaño de fuente */
+  }
+}
+
+/* Nueva clase para ocultar solo el sobre cuando se hace clic */
+.valentines-day.hidden {
+  visibility: hidden;
+}
