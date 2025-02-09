@@ -10,3 +10,4 @@ valentinesDayElement.addEventListener('click', () => {
   // Agregamos la clase 'hidden' al sobre para ocultarlo
   valentinesDayElement.classList.add('hidden');
 });
+
